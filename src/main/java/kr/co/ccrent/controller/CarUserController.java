@@ -105,20 +105,20 @@ public class CarUserController {
 		return "list";
 	}
 	
-//	회원정보 리스트 기능구현
+	//회원정보 리스트 기능구현
 //	@RequestMapping(value="list", method = RequestMethod.GET)
 //	public ModelAndView getList() throws Exception{
 //		System.out.println("===== 회원정보 리스트 =====");
 //		ModelAndView mav = new ModelAndView();
 //		
-//		List<CarUserDTO> list = car.get();
+//		List<CarUserDTO> list = car.getlistPage(cri);
 //		mav.addObject("list", list);
 //		mav.setViewName("list");
 //		
 //		return mav;
 //	}
 	
-//  정비소 등록 신청 리스트 전체목록 
+//  리스트 전체목록 
 //  @GetMapping(value = "list")
 //  public ModelAndView getlistPage(Criteria cri, Model model) throws Exception {
 //
@@ -146,13 +146,17 @@ public class CarUserController {
   public void garage_list(Criteria cri, Model model) throws Exception{
      System.out.println(cri.toString());
      model.addAttribute("list", car.getuser_se(cri));
+     System.out.println(car.getuser_se_count(cri));
      
      //페이징처리
      PageMaker pageMaker = new PageMaker();
      pageMaker.setCri(cri);
      pageMaker.setTotalCount(car.getuser_se_count(cri));
+    
      
      model.addAttribute("pageMaker",pageMaker);
+     
+     
   }
 	
 

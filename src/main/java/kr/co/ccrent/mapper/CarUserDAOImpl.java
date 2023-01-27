@@ -78,7 +78,7 @@ public class CarUserDAOImpl implements CarUserDAO {
 		return null;
 	}
 
-//	페이징처리 개시물 총 갯수
+
 
 
 
