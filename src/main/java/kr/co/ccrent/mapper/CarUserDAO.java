@@ -25,6 +25,9 @@ public interface CarUserDAO {
 	//회원정보 삭제
 	public int delete(int car_uno);
 	
+	//회원정보 수정 or 강제수정
+	public int update (CarUserDTO carUserDTO);
+	
 	//페이징처리
 	public int listPage_count(Criteria cri)throws Exception;
 	public List<CarUserDTO> listPage(Criteria cri) throws Exception;
@@ -33,4 +36,7 @@ public interface CarUserDAO {
 	public int user_se_count(Criteria cri)throws Exception;
 	public List<CarUserDTO> user_se(Criteria cri) throws Exception;
 
+	//아이디 중복검사
+	public int idCheck(String memberId);
+	 
 }

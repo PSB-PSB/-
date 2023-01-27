@@ -72,7 +72,7 @@
       ]]>
    </select>
    
-   <!-- 정비소 검색조건에 해당하는 페이지조회 -->
+   <!-- 검색조건에 해당하는 페이지조회 -->
    <select id="user_se"
       resultType="kr.co.ccrent.dto.CarUserDTO">
        <![CDATA[
@@ -83,7 +83,7 @@
        ]]>
    </select>
 
-   <!-- 정비소 검색조건에 해당하는 전체 게시물 수 조회 -->
+   <!-- 검색조건에 해당하는 전체 게시물 수 조회 -->
    <select id="user_se_count" resultType="int">
       <![CDATA[
       select    count(car_uno)
@@ -92,4 +92,18 @@
       ]]>
    </select>
 
+	<!-- 회원정보 수정 or 강제수정 -->
+	<update id="update" parameterType="kr.co.ccrent.dto.CarUserDTO">
+		update usercumstomers
+		set 
+		car_udriverid=#{car_udriverid}, car_uid=#{car_uid}, car_upw = #{car_upw}, car_uname=#{car_uname}, car_uyear=#{car_uyear}, car_uaddr=#{car_uaddr},
+		car_uemail=#{car_uemail}, car_uphone=#{car_uphone}, car_pdate=#{car_pdate}, car_ptype=#{car_ptype}
+		where car_uno = #{car_uno}
+	</update>
+
+	<!-- 아이디 중복 체크 -->
+	<select id="idCheck" resultType="int">
+		select count(*) from usercumstomers where car_uid = #{car_uid}
+	</select>
+	
 </mapper>

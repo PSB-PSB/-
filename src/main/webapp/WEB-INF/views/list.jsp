@@ -10,6 +10,19 @@
 	<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <title>Insert title here</title>
+<script>
+   function search(){
+         var $keyword = $('#keyword');
+         $('#searchBtn').on('click',function(){
+            var keywordVal = $keyword.val();
+            var url = "listcri?page=1"
+               + "&perPageNum=" + "${pageMaker.cri.perPageNum}"         
+               + "&keyword=" + encodeURIComponent(keywordVal);
+            window.location.href = url;         
+         })   
+   }
+
+</script>
 </head>
 <body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
@@ -30,6 +43,9 @@
 			</tr>
 		</thead>
 		
+		
+	
+	<c:if test="${pageMaker.cri.keyword != null }">
 		<tbody>
 			<c:forEach items="${list }" var = "list">
 				<tr>
@@ -47,8 +63,8 @@
 				</tr>
 			</c:forEach>
 		</tbody>
+	</c:if>
 	</table>
-	<c:if test="${pageMaker.cri.keyword !=null }">
    <div class="container text-center">
     
       <ul>
@@ -67,6 +83,8 @@
             <a class="btn btn-outline-secondary " href = "list${pageMaker.makeSearch(pageMaker.endPage +1 )}">&raquo;</a>
          </c:if>
       </ul>
+</div>
+
             <form name="search_garage" autocomplete="on">
    <div class="container text-center"> 
       
@@ -76,8 +94,6 @@
             
    </div>
 </form>
-</div>
-</c:if>
 <div class="box-footer">
          <button class="btn btn-success">메인</button>
          <button class="btn btn-warning">수정</button>

@@ -7,7 +7,10 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.ccrent.dto.CarUserDTO;
 import kr.co.ccrent.dto.Criteria;
@@ -21,6 +24,7 @@ public class CarUserServiceImpl implements CarUserService{
 	
 	@Autowired
 	CarUserDAO carUserDAO;
+
 	
 
 	@Override
@@ -63,6 +67,13 @@ public class CarUserServiceImpl implements CarUserService{
 		return carUserDAO.delete(car_uno);
 	}
 
+//	회원 정보 수정 or 강제 수정
+	@Override
+	public int update(CarUserDTO carUserDTO) {
+		// TODO Auto-generated method stub
+		return carUserDAO.update(carUserDTO);
+	}
+	
 	@Override
 	public int getlistPage_count(Criteria cri) throws Exception {
 		// TODO Auto-generated method stub
@@ -86,6 +97,16 @@ public class CarUserServiceImpl implements CarUserService{
 		// TODO Auto-generated method stub
 		return carUserDAO.user_se(cri);
 	}
+
+//	아이디 중복검사
+	@Override
+	public int idCheck(String memberId) throws Exception {
+		// TODO Auto-generated method stub
+		return carUserDAO.idCheck(memberId);
+	}
+
+	
+ 
 	
 
 

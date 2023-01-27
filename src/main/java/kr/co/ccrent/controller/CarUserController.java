@@ -62,6 +62,25 @@ public class CarUserController {
 	}
 	
 	
+//	아이디 중복체크
+	@RequestMapping(value = "/memberIdChk", method = RequestMethod.POST)
+	@ResponseBody
+	public String memberIdChkPOST(String memberId) throws Exception{
+		logger.info("memberIdChk() 진입");
+		
+		int result = car.idCheck(memberId);
+		
+		logger.info("결과값 = " + result);
+		if(result != 0) {
+			
+			return "fail"; //중복아이디 OK
+			
+		}else {
+			return "success"; //중복아이디 x
+		}
+	}
+	
+	
 //	로그인 페이지 이동
 	@RequestMapping(value="login", method = RequestMethod.GET)
 	public String login() {
@@ -98,6 +117,34 @@ public class CarUserController {
 	}
  
 	
+//	회원정보 수정이동 
+	@RequestMapping(value = "update", method = RequestMethod.GET)
+	public String update(@RequestParam("car_uno")int car_uno, Model model) throws Exception{
+		CarUserDTO carUserDTO = car.detail(car_uno);
+		model.addAttribute("list", carUserDTO);
+		System.out.println(car_uno);
+		System.out.println(carUserDTO.getCar_uid());
+		return "update";
+	}
+	
+//	회원정보 수정
+	@RequestMapping(value = "update", method = RequestMethod.POST)
+	public String update(CarUserDTO carUserDTO, RedirectAttributes attr,HttpServletRequest request) throws Exception {
+		request.setCharacterEncoding("utf-8");
+		int r = car.update(carUserDTO);
+		// 수정에 성공하면 목록보기로 이동
+		if (r > 0) {
+			attr.addFlashAttribute("msg", "수정에 성공 하였습니다.");
+			return "redirect:list";
+		}
+		// 수정에 실패하면 수정보기 화면으로 이동
+		return "redirect:update?car_uno=" + carUserDTO.getCar_uno();
+	}
+	
+	
+	
+	
+	
 //	회원정보 리스트 이동
 	@RequestMapping(value="List", method = RequestMethod.GET)
 	public String List() throws Exception{
@@ -105,20 +152,31 @@ public class CarUserController {
 		return "list";
 	}
 	
-//	회원정보 리스트 기능구현
+	// 회원정보 상세보기
+		@RequestMapping(value="detail", method = RequestMethod.GET)
+		public String getdetail(Model model, int car_uno) throws Exception{
+		
+			//비지니스 모델, 서비스
+			CarUserDTO carUserDTO = car.detail(car_uno);
+			model.addAttribute("list",carUserDTO);
+			
+			return "detail";
+		}
+	
+	//회원정보 리스트 기능구현
 //	@RequestMapping(value="list", method = RequestMethod.GET)
 //	public ModelAndView getList() throws Exception{
 //		System.out.println("===== 회원정보 리스트 =====");
 //		ModelAndView mav = new ModelAndView();
 //		
-//		List<CarUserDTO> list = car.get();
+//		List<CarUserDTO> list = car.getlistPage(cri);
 //		mav.addObject("list", list);
 //		mav.setViewName("list");
 //		
 //		return mav;
 //	}
 	
-//  정비소 등록 신청 리스트 전체목록 
+//  리스트 전체목록 
 //  @GetMapping(value = "list")
 //  public ModelAndView getlistPage(Criteria cri, Model model) throws Exception {
 //
@@ -146,27 +204,22 @@ public class CarUserController {
   public void garage_list(Criteria cri, Model model) throws Exception{
      System.out.println(cri.toString());
      model.addAttribute("list", car.getuser_se(cri));
+     System.out.println(car.getuser_se_count(cri));
      
      //페이징처리
      PageMaker pageMaker = new PageMaker();
      pageMaker.setCri(cri);
      pageMaker.setTotalCount(car.getuser_se_count(cri));
+    
      
      model.addAttribute("pageMaker",pageMaker);
+     
+     
   }
 	
 
 	
-// 회원정보 상세보기
-	@RequestMapping(value="detail", method = RequestMethod.GET)
-	public String getdetail(Model model, int car_uno) throws Exception{
-	
-		//비지니스 모델, 서비스
-		CarUserDTO carUserDTO = car.detail(car_uno);
-		model.addAttribute("list",carUserDTO);
-		
-		return "detail";
-	}
+
 	
 //	회원탈퇴 기능구현
 	@RequestMapping(value="delete", method = RequestMethod.GET)

@@ -17,7 +17,7 @@
     <a class="nav-link active" aria-current="page" href="#">Active</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/list">회원정보</a>
+    <a class="nav-link" href="/list?keyword=">회원정보</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="/join">회원가입</a>

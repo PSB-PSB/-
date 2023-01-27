@@ -2,6 +2,7 @@ package kr.co.ccrent.mapper;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,7 +79,19 @@ public class CarUserDAOImpl implements CarUserDAO {
 		return null;
 	}
 
-//	페이징처리 개시물 총 갯수
+	@Override
+	public int update(CarUserDTO carUserDTO) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int idCheck(String memberId) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+ 
+	
 
 
 
