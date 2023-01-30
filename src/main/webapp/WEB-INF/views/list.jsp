@@ -21,7 +21,11 @@
             window.location.href = url;         
          })   
    }
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> refs/remotes/origin/master
 </script>
 </head>
 <body>
@@ -84,7 +88,11 @@
          </c:if>
       </ul>
 </div>
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> refs/remotes/origin/master
             <form name="search_garage" autocomplete="on">
    <div class="container text-center"> 
       

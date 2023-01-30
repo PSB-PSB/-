@@ -79,6 +79,7 @@ public class CarUserDAOImpl implements CarUserDAO {
 		return null;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public int update(CarUserDTO carUserDTO) {
 		// TODO Auto-generated method stub
@@ -92,6 +93,9 @@ public class CarUserDAOImpl implements CarUserDAO {
 	}
  
 	
+=======
+
+>>>>>>> refs/remotes/origin/master
 
 
 

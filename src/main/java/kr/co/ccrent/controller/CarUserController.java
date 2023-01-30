@@ -152,6 +152,7 @@ public class CarUserController {
 		return "list";
 	}
 	
+<<<<<<< HEAD
 	// 회원정보 상세보기
 		@RequestMapping(value="detail", method = RequestMethod.GET)
 		public String getdetail(Model model, int car_uno) throws Exception{
@@ -163,6 +164,8 @@ public class CarUserController {
 			return "detail";
 		}
 	
+=======
+>>>>>>> refs/remotes/origin/master
 	//회원정보 리스트 기능구현
 //	@RequestMapping(value="list", method = RequestMethod.GET)
 //	public ModelAndView getList() throws Exception{
