@@ -38,5 +38,5 @@ public interface CarUserDAO {
 
 	//아이디 중복검사
 	public int idCheck(String memberId);
-	 
+	  
 }

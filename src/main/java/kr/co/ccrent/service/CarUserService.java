@@ -35,6 +35,6 @@ public interface CarUserService {
 
 	//아이디 중복검사
 	public int idCheck(String memberId) throws Exception;
-
+ 
 	  
 }
