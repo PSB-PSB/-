@@ -18,7 +18,7 @@ public interface CarUserDAO {
 	
 	//회원정보 리스트
 	public List<CarUserDTO> select() throws Exception;
-	
+	 
 	//회원 상세정보 보기
 	public CarUserDTO detail(int car_uno);
 	

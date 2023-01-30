@@ -35,7 +35,7 @@
 		order by car_uno desc;
 	</select>
 
-
+ 
 	<!-- 회원상세정보 -->
 	<select id="detail" resultType="kr.co.ccrent.dto.CarUserDTO">
 		select *
