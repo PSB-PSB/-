@@ -84,7 +84,7 @@
          </c:if>
       </ul>
 </div>
- 
+  
             <form name="search_garage" autocomplete="on">
    <div class="container text-center"> 
       

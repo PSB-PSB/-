@@ -96,7 +96,7 @@ public class CarUserServiceImpl implements CarUserService{
 	public List<CarUserDTO> getuser_se(Criteria cri) throws Exception {
 		// TODO Auto-generated method stub
 		return carUserDAO.user_se(cri);
-	}
+	} 
 
 //	아이디 중복검사
 	@Override
@@ -109,7 +109,7 @@ public class CarUserServiceImpl implements CarUserService{
  
 	 
 
-
+ 
 
 
 
