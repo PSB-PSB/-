@@ -10,7 +10,7 @@
 //car_ptype varcha
 
 
- 
+  
 package kr.co.ccrent.dto;
 
 import java.sql.Date;
