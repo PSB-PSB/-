@@ -78,7 +78,7 @@
 
 <c:if test="${user != null}">
 	<a class="nav-link" href="/logout">로그아웃</a>
-</c:if>
+</c:if> 
     </a>
   </li>
 </ul>
