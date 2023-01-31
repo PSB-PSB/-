@@ -21,7 +21,7 @@
 		#{car_uname}, #{car_uaddr}, #{car_uemail}, #{car_uphone},
 		#{car_upoint}, curdate(), #{car_ptype})
 	</insert>
-
+ 
 	<!-- 로그인 -->
 	<select id="login" resultType="kr.co.ccrent.dto.CarUserDTO">
 		select * from
