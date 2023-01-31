@@ -171,7 +171,7 @@
 	<label for = "userEmail">인증번호확인</label>
 		<input type="text" placeholder="인증번호 입력" id="email_auth_key">
 	</div>
-		
+		  
 		<br>
 	<label for="userAddr">주소</label>
 		<input type="text" id="car_uaddr" name="car_uaddr" placeholder="주소"><br>

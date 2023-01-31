@@ -60,7 +60,7 @@ public class CarUserController {
 		System.out.println("===== JOINING =====");
 		return mav;
 	}
-	
+	 
 	
 //	아이디 중복체크
 	@RequestMapping(value = "/memberIdChk", method = RequestMethod.POST)
