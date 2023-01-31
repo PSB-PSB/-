@@ -31,7 +31,7 @@ public class CarUserDTO{
 	private String car_uyear;
 	private String car_uaddr;
 	private String car_uemail;
-	private int car_uphone;
+	private String car_uphone;
 	private int car_upoint;
 	private Date car_pdate;
 	private String car_ptype;
@@ -91,10 +91,10 @@ public class CarUserDTO{
 	public void setCar_uemail(String car_uemail) {
 		this.car_uemail = car_uemail;
 	}
-	public int getCar_uphone() {
+	public String getCar_uphone() {
 		return car_uphone;
 	}
-	public void setCar_uphone(int car_uphone) {
+	public void setCar_uphone(String car_uphone) {
 		this.car_uphone = car_uphone;
 	}
 	public int getCar_upoint() {

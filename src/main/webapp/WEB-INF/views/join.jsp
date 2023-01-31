@@ -165,7 +165,7 @@
 		<input type="date" id="car_uyear" name="car_uyear" placeholder="생년월일"><br>
 		
 	<label for="userEmail">이메일</label>
-		<input type="text" id="car_uemail" name="car_u	email" placeholder="이메일">
+		<input type="text" id="car_uemail" name="car_uemail" placeholder="이메일">
 		<button type="button" id="email_auth_btn" class="email_auth_btn">인증번호 받기</button><br>
 	</div>
 	<label for = "userEmail">인증번호확인</label>
@@ -178,8 +178,13 @@
 		
 	<label for="userPhone">핸드폰</label>
 		<input type="text" id="car_uphone" name="car_uphone" placeholder=" '-' 없이 입력해주세요 "><br>
+		<script>
+		$(document).on("keyup", "#car_uphone", function() { 
+			$(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") );
+		});
+		</script>
 	<label for="car_udriverid">운전등록번호</label>
-		<input type="text" id="car_udriverid" name=car_udriverid placeholder="운전등록번호"><br>
+		<input type="text" id="car_udriverid" name="car_udriverid" placeholder="운전등록번호"><br>
 		
 	<select name="car_ptype">
 		<option>선호 차량</option>
@@ -202,7 +207,10 @@
 
 
 </body>
+
+
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
 <script>
 window.onload = function(){
     document.getElementById("car_uaddr").addEventListener("click", function(){ //주소입력칸을 클릭하면
@@ -210,10 +218,11 @@ window.onload = function(){
         new daum.Postcode({
             oncomplete: function(data) { //선택시 입력값 세팅
                 document.getElementById("car_uaddr").value = data.address; // 주소 넣기
-                document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
+                document.querySelector("input[name=car_uphone]").focus(); //상세입력 포커싱
             }
         }).open();
     });
+    
 }
 
 
