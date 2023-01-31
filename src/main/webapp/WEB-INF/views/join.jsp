@@ -156,7 +156,7 @@
 						
 					}
 				});
-			});
+			}); 
 		</script>
 	<label for="userName">이름</label>
 		<input type="text" id="car_uname" name="car_uname" placeholder="이름"><br>

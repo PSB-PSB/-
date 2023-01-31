@@ -24,7 +24,7 @@ public interface CarUserDAO {
 	
 	//회원정보 삭제
 	public int delete(int car_uno);
-	 
+	  
 	//회원정보 수정 or 강제수정
 	public int update (CarUserDTO carUserDTO);
 	
